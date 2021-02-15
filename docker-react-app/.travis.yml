@@ -13,5 +13,22 @@ before_install:
 script:
   - docker run -e CI=true dmogki/docker-react-app npm run test -- --coverage
 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "tdocker"
+  env: "tdocker-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-105847046109"
+  bucket_path: "tdocker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
 after_success:
-  - echo "TEST Success!"
+  - echo "Check url!"
+
+
+
+
+  
