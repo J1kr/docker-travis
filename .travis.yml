@@ -19,6 +19,6 @@ after_success:
 
  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
- - docker push -t dmogki/docker-frontend 
- - docker push -t dmogki/docker-backend 
- - docker push -t dmogki/docker-nginx 
+ - docker push dmogki/docker-frontend 
+ - docker push dmogki/docker-backend 
+ - docker push dmogki/docker-nginx 
