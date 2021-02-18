@@ -22,3 +22,18 @@ after_success:
  - docker push dmogki/docker-frontend 
  - docker push dmogki/docker-backend 
  - docker push dmogki/docker-nginx 
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "tdocker"
+  env: "tdocker-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-105847046109"
+  bucket_path: "tdocker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+after_success:
+  - echo "Check url!"
