@@ -23,6 +23,8 @@ after_success:
  - docker push -f dmogki/docker-backend 
  - docker push -f dmogki/docker-nginx 
 
+  - echo "Push Image OK" 
+
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
@@ -35,5 +37,3 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
 
-after_success:
-  - echo "Check url!"
