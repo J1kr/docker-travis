@@ -19,9 +19,9 @@ after_success:
 
  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
- - docker push dmogki/docker-frontend 
- - docker push dmogki/docker-backend 
- - docker push dmogki/docker-nginx 
+ - docker push -f dmogki/docker-frontend 
+ - docker push -f dmogki/docker-backend 
+ - docker push -f dmogki/docker-nginx 
 
 deploy:
   provider: elasticbeanstalk
